@@ -12,10 +12,6 @@ public class Radio {
         return stationCount;
     }
 
-    public void setStationCount(int stationCount) {
-        this.stationCount = stationCount;
-    }
-
 
     public void next() {
         if (currentStation != 9) {
