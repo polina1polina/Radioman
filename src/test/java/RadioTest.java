@@ -5,20 +5,17 @@ public class RadioTest {
 
     @Test
     public void checkValidNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(3);
 
-        int expected = 3;
-        int actual = radio.getCurrentStation();
-
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(3, radio.getCurrentStation());
 
     }
 
     @Test
     public void checkNotValidNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(25);
 
@@ -31,7 +28,7 @@ public class RadioTest {
 
     @Test
     public void checkNegativeNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(-13);
 
@@ -44,7 +41,7 @@ public class RadioTest {
 
     @Test
     public void checkZeroNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(0);
 
@@ -57,7 +54,7 @@ public class RadioTest {
 
     @Test
     public void checkNegativeBoundNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(-1);
 
@@ -70,7 +67,7 @@ public class RadioTest {
 
     @Test
     public void checkPositiveBoundNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(1);
 
@@ -83,7 +80,7 @@ public class RadioTest {
 
     @Test
     public void checkTopBoundNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(8);
 
@@ -96,7 +93,7 @@ public class RadioTest {
 
     @Test
     public void checkLimitBoundNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(9);
 
@@ -109,7 +106,7 @@ public class RadioTest {
 
     @Test
     public void checkTransBoundNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(10);
 
@@ -122,7 +119,7 @@ public class RadioTest {
 
     @Test
     public void GoOverNextOne() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(6);
 
@@ -137,7 +134,7 @@ public class RadioTest {
 
     @Test
     public void GoOverAtMax() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(9);
 
@@ -152,7 +149,7 @@ public class RadioTest {
 
     @Test
     public void GoOverBackToOne() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(9);
 
@@ -167,7 +164,7 @@ public class RadioTest {
 
     @Test
     public void GoOverBackFromZero() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(0);
 
@@ -182,7 +179,7 @@ public class RadioTest {
 
     @Test
     public void addOneVol() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(0);
 
@@ -197,7 +194,7 @@ public class RadioTest {
 
     @Test
     public void addToOne() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(3);
 
@@ -212,7 +209,7 @@ public class RadioTest {
 
     @Test
     public void addMaxVol() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(10);
 
@@ -227,7 +224,7 @@ public class RadioTest {
 
     @Test
     public void reduceMaxVol() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(10);
 
@@ -242,7 +239,7 @@ public class RadioTest {
 
     @Test
     public void reduceToOne() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(8);
 
@@ -257,7 +254,7 @@ public class RadioTest {
 
     @Test
     public void reduceMinVol() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(1);
 
@@ -272,7 +269,7 @@ public class RadioTest {
 
     @Test
     public void reduceZeroVol() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(0);
 
@@ -287,9 +284,9 @@ public class RadioTest {
 
     @Test
     public void reduceMaximumVol() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(110);
 
         radio.reduce();
 
@@ -300,4 +297,10 @@ public class RadioTest {
 
     }
 
+    @Test
+    public void numberOfStations() {
+        Radio radio = new Radio(10);
+
+        Assertions.assertEquals(10, radio.getStationCount());
+    }
 }
