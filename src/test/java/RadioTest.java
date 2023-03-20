@@ -299,8 +299,11 @@ public class RadioTest {
 
     @Test
     public void numberOfStations() {
-        Radio radio = new Radio(10);
+        Radio radio = new Radio(20);
 
-        Assertions.assertEquals(10, radio.getStationCount());
+        radio.setCurrentStation(15);
+
+        Assertions.assertEquals(15, radio.getCurrentStation());
     }
+
 }
